@@ -1,0 +1,20 @@
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Lastname</th>
+      <th scope="col">Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let client of clients">
+      <th scope="row">1</th>
+      <td>{{client.name}}</td>
+      <td>{{client.lastname}}</td>
+      <td>{{client.age}}</td>
+    </tr>
+
+  </tbody>
+</table>
+
