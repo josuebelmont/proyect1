@@ -1,0 +1,81 @@
+<div class="col-md-6 m-4">
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label"
+      >Titile</label
+    >
+    <input
+      type="text"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="title"
+      [(ngModel)]="Newtask.title"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label"
+      >Task</label
+    >
+    <textarea
+      class="form-control"
+      id="exampleFormControlTextarea1"
+      placeholder="Task"
+      rows="3"
+      [(ngModel)]="Newtask.description"
+    ></textarea>
+  </div>
+  <button class="btn btn-primary" (click)="save()">Save</button>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      
+      <th scope="col">Title</th>
+      <th scope="col">Decription</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let task of tasks ">
+    
+      <td>{{task.title}}</td>
+      <td>{{task.description}}</td>
+      <td><button type="button" class="btn btn-primary" (click)="find(task._id)" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Update</button></td>
+      <td><button class="btn btn-danger" (click)="delete(task._id)">Delete</button></td>
+    </tr>
+   
+  </tbody>
+</table>
+
+
+<!--Modal for edit-->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit a task</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form *ngIf="UpTask">
+          <div class="mb-3">
+            <input type="hidden" name="id" [(ngModel)]="UpTask._id">
+            <label for="recipient-name" class="col-form-label">Title: </label>
+            <input type="text" class="form-control" name="title"  [(ngModel)]="UpTask.title" placeholder="{{UpTask.title}}">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Task:</label>
+            <textarea class="form-control" [(ngModel)]="UpTask.description" name="description" placeholder="{{UpTask.description}}"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="update()">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -13,8 +13,9 @@ import { FormComponent } from './components/form/form.component';
 import { FormsModule } from '@angular/forms';
 import { ClientsComponent } from './views/clients/clients.component';
 import { RouterModule } from '@angular/router';
-import { AppRoutingModuleModule } from './app-routing-module.module';
+import { AppRoutingModuleModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { TasksComponent } from './views/tasks/tasks.component';
 
 
 
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     AboutComponent,
     SignUpComponent,
     FormComponent,
-    ClientsComponent
+    ClientsComponent,
+    TasksComponent
 
 
 
